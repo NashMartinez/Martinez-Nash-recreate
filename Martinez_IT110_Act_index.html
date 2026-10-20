@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHub</title>
+    <link rel="stylesheet" href="Martinez_IT110act_style.css">
+    <script src="Martinez_IT110act_script.js" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="#home" class="logo">Campus<span>Hub</span></a>
+
+        <nav aria-label="Main navigation">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#courses" class="nav-link">Courses</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="theme-control">
+            <label for="darkMode">Dark mode</label>
+            <button
+                id="darkMode"
+                class="toggle"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                aria-label="Toggle dark mode"
+            >
+                <span class="toggle-knob"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="profile-card" aria-label="Student profile">
+            <div class="avatar" aria-hidden="true">NM</div>
+
+            <h1>Nash M. Martinez</h1>
+            <p class="course">BS Information Technology, 2nd Year</p>
+
+            <div class="skills" id="courses">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
+            <div class="actions">
+                <button type="button" id="likeButton" class="like-button">
+                    <span aria-hidden="true">♥</span>
+                    Like
+                    <span class="like-count" id="likeCount">24</span>
+                </button>
+
+                <button type="button" id="resetButton" class="reset-button">
+                    Reset
+                </button>
+            </div>
+            <p id="message" class="message" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>© 2026 CampusHub. All rights reserved.</p>
+    </footer>
+</body>
+</html>

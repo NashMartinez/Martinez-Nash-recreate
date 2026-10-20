@@ -1,0 +1,437 @@
+
+/* ===== GENERAL DESIGN ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #f8fafc;
+    background: #0f172a;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(ellipse at top left, #312e81 0%, transparent 45%),
+        radial-gradient(ellipse at bottom right, #581c87 0%, transparent 40%),
+        #0f172a;
+    color: #f8fafc;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ===== NAVIGATION BAR ===== */
+.navbar {
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 18px 6%;
+    background: rgba(15, 23, 42, 0.85);
+    border-bottom: 1px solid rgba(167, 139, 250, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #a78bfa;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #c4b5fd;
+    border-bottom-color: #a78bfa;
+}
+
+.theme-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #e2e8f0;
+    font-size: 14px;
+}
+
+/* ===== DARK MODE SWITCH ===== */
+.toggle {
+    width: 54px;
+    height: 30px;
+    padding: 3px;
+    border: 1px solid #64748b;
+    border-radius: 30px;
+    background: #475569;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-knob {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 2px 6px #00000040;
+    transition: transform 0.3s;
+}
+
+.toggle[aria-checked="true"] {
+    background: #8b5cf6;
+}
+
+.toggle[aria-checked="true"] .toggle-knob {
+    transform: translateX(24px);
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+/* ===== PROFILE CARD ===== */
+.profile-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 45px 30px 35px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: rgba(30, 41, 59, 0.75);
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.3),
+        0 0 35px rgba(139, 92, 246, 0.1);
+
+    backdrop-filter: blur(18px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.4),
+        0 0 45px rgba(139, 92, 246, 0.2);
+}
+
+/* ===== AVATAR ===== */
+.avatar {
+    width: 115px;
+    height: 115px;
+    margin-bottom: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 4px solid #c4b5fd;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: white;
+
+    font-size: 36px;
+    font-weight: 800;
+
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.course {
+    margin-bottom: 28px;
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ===== SKILLS ===== */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.skills span {
+    padding: 9px 16px;
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    border-radius: 30px;
+
+    background: rgba(139, 92, 246, 0.15);
+    color: #ddd6fe;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    transition: background 0.3s, transform 0.3s;
+}
+
+.skills span:hover {
+    background: rgba(139, 92, 246, 0.35);
+    transform: translateY(-3px);
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.like-button,
+.reset-button {
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+.like-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 1px solid #8b5cf6;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    color: white;
+
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
+}
+
+.like-button:hover {
+    background: linear-gradient(135deg, #a78bfa, #818cf8);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+    transform: translateY(-3px);
+}
+
+.like-button span:first-child {
+    color: #fecdd3;
+    font-size: 18px;
+}
+
+.like-count {
+    min-width: 28px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-align: center;
+}
+
+.reset-button {
+    border: 1px solid #64748b;
+    background: rgba(51, 65, 85, 0.5);
+    color: #e2e8f0;
+}
+
+.reset-button:hover {
+    background: #334155;
+    border-color: #a78bfa;
+    transform: translateY(-3px);
+}
+
+.like-button:active,
+.reset-button:active {
+    transform: scale(0.97);
+}
+
+.message {
+    min-height: 20px;
+    margin-top: 18px;
+    color: #c4b5fd;
+    font-size: 13px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    padding: 25px 15px;
+    border-top: 1px solid rgba(167, 139, 250, 0.15);
+    background: rgba(15, 23, 42, 0.5);
+    color: #94a3b8;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* ===== LIGHT MODE ===== */
+body:not(.dark) {
+    background:
+        radial-gradient(ellipse at top left, #e0e7ff, transparent 50%),
+        radial-gradient(ellipse at bottom right, #f3e8ff, transparent 45%),
+        #f8fafc;
+    color: #1e293b;
+}
+
+body:not(.dark) .navbar {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom-color: #e2e8f0;
+}
+
+body:not(.dark) .logo {
+    color: #312e81;
+}
+
+body:not(.dark) .nav-link {
+    color: #475569;
+}
+
+body:not(.dark) .nav-link:hover,
+body:not(.dark) .nav-link.active {
+    color: #6d28d9;
+    border-bottom-color: #8b5cf6;
+}
+
+body:not(.dark) .theme-control {
+    color: #334155;
+}
+
+body:not(.dark) .profile-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: #ddd6fe;
+    box-shadow: 0 25px 60px rgba(79, 70, 229, 0.12);
+}
+
+body:not(.dark) h1 {
+    color: #1e1b4b;
+}
+
+body:not(.dark) .course {
+    color: #64748b;
+}
+
+body:not(.dark) .skills span {
+    background: #ede9fe;
+    color: #5b21b6;
+    border-color: #ddd6fe;
+}
+
+body:not(.dark) .reset-button {
+    background: white;
+    color: #5b21b6;
+    border-color: #c4b5fd;
+}
+
+body:not(.dark) .message {
+    color: #6d28d9;
+}
+
+body:not(.dark) footer {
+    background: rgba(255, 255, 255, 0.5);
+    border-top-color: #e2e8f0;
+    color: #64748b;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 700px) {
+    .navbar {
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 22px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .theme-control {
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    main {
+        padding: 40px 16px;
+    }
+
+    .profile-card {
+        padding: 35px 20px 28px;
+        border-radius: 22px;
+    }
+
+    .avatar {
+        width: 95px;
+        height: 95px;
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .course {
+        font-size: 14px;
+    }
+
+    .skills {
+        gap: 8px;
+    }
+
+    .skills span {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
